@@ -1,0 +1,26 @@
+<table class="table table-striped">
+    <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Nome</th>
+    <th scope="col">Cognome</th>
+    <th scope="col">Codice Fiscale</th>
+    <th scope="col">Data di nascita</th>
+    <th scope="col">Indirizzo</th>
+    <th scope="col">Mail</th>
+    <th scope="col">Telefono</th>
+    <th scope="col">Titolo di studio</th>
+    <th>Sesso</th>
+  </tr>
+  <tr *ngFor="let s of students">
+    <td scope="row">{{s.id}}</td>
+    <td>{{s.nome}}</td>
+    <td>{{s.cognome}}</td>
+    <td>{{s.codiceFiscale}}</td>
+    <td>{{s.dataDiNascita}}</td>
+    <td>{{s.indirizzo}}</td>
+    <td>{{s.mail}}</td>
+    <td>{{s.telefono}}</td>
+    <td>{{s.titoloDiStudio}}</td>
+    <td>{{!s.sesso ? 'femmina': 'maschio'}}</td>
+  </tr>
+  </table>
