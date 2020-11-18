@@ -1,26 +1,94 @@
-<table class="table table-striped">
-    <tr>
-    <th scope="col">Id</th>
-    <th scope="col">Nome</th>
-    <th scope="col">Cognome</th>
-    <th scope="col">Codice Fiscale</th>
-    <th scope="col">Data di nascita</th>
-    <th scope="col">Indirizzo</th>
-    <th scope="col">Mail</th>
-    <th scope="col">Telefono</th>
-    <th scope="col">Titolo di studio</th>
-    <th>Sesso</th>
-  </tr>
-  <tr *ngFor="let s of students">
-    <td scope="row">{{s.id}}</td>
-    <td>{{s.nome}}</td>
-    <td>{{s.cognome}}</td>
-    <td>{{s.codiceFiscale}}</td>
-    <td>{{s.dataDiNascita}}</td>
-    <td>{{s.indirizzo}}</td>
-    <td>{{s.mail}}</td>
-    <td>{{s.telefono}}</td>
-    <td>{{s.titoloDiStudio}}</td>
-    <td>{{!s.sesso ? 'femmina': 'maschio'}}</td>
-  </tr>
-  </table>
+
+
+<table mat-table [dataSource]="students" matSort class="mat-elevation-z8" (matSortChange)="sortData($event)" >
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}}</td> 
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> nome </th>
+    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="cognome">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Cognome </th>
+    <td mat-cell *matCellDef="let element"> {{element.cognome}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="codiceFiscale">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Codice fiscale </th>
+    <td mat-cell *matCellDef="let element"> {{element.codiceFiscale}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dataDiNascita">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Data di nascita </th>
+    <td mat-cell *matCellDef="let element"> {{element.dataDiNascita}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="indirizzo">
+    <th mat-header-cell *matHeaderCellDef> Indirizzo </th>
+    <td mat-cell *matCellDef="let element"> {{element.indirizzo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="mail">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>  Mail </th>
+    <td mat-cell *matCellDef="let element"> {{element.mail}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="telefono">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefono </th>
+    <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="titoloDiStudio">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Titolo di studio </th>
+    <td mat-cell *matCellDef="let element"> {{element.titoloDiStudio}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="sesso">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Sesso </th>
+    <td mat-cell *matCellDef="let element"> {{!element.sesso ? 'femmina': 'maschio'}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  
+</table>
+<mat-paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
