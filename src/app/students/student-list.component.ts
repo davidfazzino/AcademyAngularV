@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 
 @Component({
-    selector:'app-student',
+    selector:'app-listStudent',
       templateUrl: './student-list.component.html',
       styleUrls: ['./student-list.component.css']
     })

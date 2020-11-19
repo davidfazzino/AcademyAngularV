@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IStudent } from './IStudent';
 import { throwError } from 'rxjs/internal/observable/throwError';
 import { catchError, tap, map } from 'rxjs/operators';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
     providedIn: 'root'
@@ -21,6 +22,13 @@ export class studentService{
             catchError(this.handleError)
           );
         
+    }
+    addStudent(student:IStudent):Observable<IStudent> {
+      console.log("add in servizio");
+      const headers = { 'content-type': 'application/json'}  
+      return this.http.post<IStudent>(this.studentUrl, student,{'headers':headers});
+    
+      
     }
         
   private handleError(err: HttpErrorResponse): Observable<never> {

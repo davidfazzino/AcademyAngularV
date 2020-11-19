@@ -14,6 +14,8 @@ import {  MatTableModule} from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatButtonModule} from '@angular/material/button';
+import { StudentComponent } from './students/student.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +24,8 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     EnrollmentComponentComponent,
     studentListComponent,
-    HomeComponent
+    HomeComponent,
+    StudentComponent
     
   ],
    
@@ -35,6 +38,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    FormsModule
     
   
   ],

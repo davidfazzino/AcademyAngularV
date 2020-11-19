@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-enrollment-component',
   templateUrl: './enrollment-component.component.html',
@@ -11,5 +12,6 @@ export class EnrollmentComponentComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ 
 
 }

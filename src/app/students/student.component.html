@@ -1,0 +1,162 @@
+<div class="card">
+  <div class="card-header">
+    Sign Up!
+  </div>
+
+  <div class="card-body">
+    <form novalidate (ngSubmit)="save(signupForm)" #signupForm="ngForm">
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="nome">Nome</label>
+        <div class="col-md-8">
+          <input class="form-control" id="nome" type="text" placeholder="Nome (required)" required
+            [(ngModel)]=student.nome name="nome" #NomeVar="ngModel"
+            [ngClass]="{'is-invalid': (NomeVar.touched || NomeVar.dirty) && !NomeVar.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="NomeVar.errors?.required">
+              Please enter your Name.
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="cognome">Cognome</label>
+        <div class="col-md-8">
+          <input class="form-control" id="cognome" type="text" placeholder="Cognome (required)" required
+            [(ngModel)]=student.cognome name="cognome" #CognomeVar="ngModel"
+            [ngClass]="{'is-invalid': (CognomeVar.touched || CognomeVar.dirty) && !CognomeVar.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="CognomeVar.errors?.required">
+              Please enter your Name.
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="codiceFiscale">codiceFiscale</label>
+        <div class="col-md-8">
+          <input class="form-control" id="codiceFiscale" type="text" placeholder="codice fiscale (required)" required
+            [(ngModel)]=student.codiceFiscale name="codiceFiscale" #codiceFiscaleVar="ngModel"
+            [ngClass]="{'is-invalid': (codiceFiscaleVar.touched || codiceFiscaleVar.dirty) && !codiceFiscaleVar.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="codiceFiscaleVar.errors?.required">
+              Please enter your codiceFiscaleVar.
+            </span>
+          </span>
+        </div>
+      </div>
+
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="dataDiNascita">Data di nascita</label>
+        <div class="col-md-8">
+          <input class="form-control" id="dataDiNascita" type="text" placeholder="data di nascita (required)" required
+            [(ngModel)]=student.dataDiNascita name="dataDiNascita" #dataDiNascitaVar="ngModel"
+            [ngClass]="{'is-invalid': (dataDiNascitaVar.touched || dataDiNascitaVar.dirty) && !dataDiNascitaVar.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="dataDiNascitaVar.errors?.required">
+              Please enter your date of birth.
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="indirizzo">Indirizzo</label>
+        <div class="col-md-8">
+          <input class="form-control" id="indirizzo" type="text" placeholder="indirizzo (required)" required
+            [(ngModel)]=student.indirizzo name="indirizzo" #indirizzoVar="ngModel"
+            [ngClass]="{'is-invalid': (indirizzoVar.touched || indirizzoVar.dirty) && !indirizzoVar.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="indirizzoVar.errors?.required">
+              Please enter your address.
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="mail">Mail</label>
+        <div class="col-md-8">
+          <input class="form-control" id="mail" type="text" placeholder="mail (required)" required
+            [(ngModel)]=student.mail name="mail" #mailVar="ngModel"
+            [ngClass]="{'is-invalid': (mailVar.touched || mailVar.dirty) && !mailVar.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="mailVar.errors?.required">
+              Please enter your mail.
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="telefono">Telefono</label>
+        <div class="col-md-8">
+          <input class="form-control" id="telefono" type="text" placeholder="telefono (required)" required
+            [(ngModel)]=student.telefono name="telefono" #telefonoVar="ngModel"
+            [ngClass]="{'is-invalid': (telefonoVar.touched || telefonoVar.dirty) && !telefonoVar.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="telefonoVar.errors?.required">
+              Please enter your number.
+            </span>
+          </span>
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="titoloDiStudio">Titolo Di Studio</label>
+        <div class="col-md-8">
+          <input class="form-control" id="titoloDiStudio" type="text" placeholder="Titolo di studio (required)" required
+            [(ngModel)]=student.titoloDiStudio name="titoloDiStudio" #titoloDiStudioVar="ngModel"
+            [ngClass]="{'is-invalid': (titoloDiStudioVar.touched || titoloDiStudioVar.dirty) && !titoloDiStudioVar.valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="titoloDiStudioVar.errors?.required">
+              Please enter your titoloDiStudioVar.
+            </span>
+          </span>
+        </div>
+      </div>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input"
+          id="sesso"
+          type="radio"
+          value=true
+          [(ngModel)]="student.sesso"
+          name="sesso">
+          <label for="maschio">maschio</label>
+          
+        </div>
+        <div class="form-check">
+          <input class="form-check-input"
+          id="sesso"
+          type="radio"
+          value=false
+          [(ngModel)]="student.sesso"
+          name="sesso"
+           >
+          <label for="femmina">femmina</label>
+          
+        </div>
+        
+      </div>
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3" type="submit" style="width:80px"
+            [title]="signupForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+            [disabled]="!signupForm.valid">
+            Save
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+<br>Value: {{ signupForm.value | json }}
