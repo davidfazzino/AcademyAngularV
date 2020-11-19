@@ -15,7 +15,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatButtonModule} from '@angular/material/button';
 import { StudentComponent } from './students/student.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StudentReactiveComponent } from './students/student-reactive/student-reactive.component';
 
 
 
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     EnrollmentComponentComponent,
     studentListComponent,
     HomeComponent,
-    StudentComponent
+    StudentComponent,
+    StudentReactiveComponent
     
   ],
    
@@ -38,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   
   ],

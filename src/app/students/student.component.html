@@ -1,48 +1,54 @@
-<div class="card">
+
+<div class="card" style="margin-top: 20px">
   <div class="card-header">
-    Sign Up!
+    Registrazione nuovo studente
   </div>
+  
 
   <div class="card-body">
+    <p>I campi contrassegnati con * sono obbligatori</p>
     <form novalidate (ngSubmit)="save(signupForm)" #signupForm="ngForm">
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="nome">Nome</label>
+        <label class="col-md-2 col-form-label" for="nome">*Nome</label>
         <div class="col-md-8">
-          <input class="form-control" id="nome" type="text" placeholder="Nome (required)" required
+          <input class="form-control" id="nome" type="text" placeholder="Nome" required
             [(ngModel)]=student.nome name="nome" #NomeVar="ngModel"
             [ngClass]="{'is-invalid': (NomeVar.touched || NomeVar.dirty) && !NomeVar.valid }" />
           <span class="invalid-feedback">
             <span *ngIf="NomeVar.errors?.required">
-              Please enter your Name.
+              Please enter your name.
             </span>
           </span>
         </div>
       </div>
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="cognome">Cognome</label>
+        <label class="col-md-2 col-form-label" for="cognome">*Cognome</label>
         <div class="col-md-8">
-          <input class="form-control" id="cognome" type="text" placeholder="Cognome (required)" required
+          <input class="form-control" id="cognome" type="text" placeholder="Cognome" required
             [(ngModel)]=student.cognome name="cognome" #CognomeVar="ngModel"
             [ngClass]="{'is-invalid': (CognomeVar.touched || CognomeVar.dirty) && !CognomeVar.valid }" />
           <span class="invalid-feedback">
             <span *ngIf="CognomeVar.errors?.required">
-              Please enter your Name.
+              Please enter your surname.
             </span>
           </span>
         </div>
       </div>
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="codiceFiscale">codiceFiscale</label>
+        <label class="col-md-2 col-form-label" for="codiceFiscale">*codiceFiscale</label>
         <div class="col-md-8">
-          <input class="form-control" id="codiceFiscale" type="text" placeholder="codice fiscale (required)" required
+          <input class="form-control" id="codiceFiscale" type="text" placeholder="codice fiscale" required minlength="16" maxlength="16"
             [(ngModel)]=student.codiceFiscale name="codiceFiscale" #codiceFiscaleVar="ngModel"
             [ngClass]="{'is-invalid': (codiceFiscaleVar.touched || codiceFiscaleVar.dirty) && !codiceFiscaleVar.valid }" />
           <span class="invalid-feedback">
             <span *ngIf="codiceFiscaleVar.errors?.required">
-              Please enter your codiceFiscaleVar.
+              Please enter your fiscal code.
+            </span>
+            <span *ngIf="codiceFiscaleVar.errors?.maxlength || codiceFiscaleVar.errors?.minlength">
+              The fiscal code must be 16 characters.
             </span>
           </span>
         </div>
@@ -50,9 +56,9 @@
 
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="dataDiNascita">Data di nascita</label>
+        <label class="col-md-2 col-form-label" for="dataDiNascita">*Data di nascita</label>
         <div class="col-md-8">
-          <input class="form-control" id="dataDiNascita" type="text" placeholder="data di nascita (required)" required
+          <input class="form-control" id="dataDiNascita" type="date" placeholder="data di nascita" required
             [(ngModel)]=student.dataDiNascita name="dataDiNascita" #dataDiNascitaVar="ngModel"
             [ngClass]="{'is-invalid': (dataDiNascitaVar.touched || dataDiNascitaVar.dirty) && !dataDiNascitaVar.valid }" />
           <span class="invalid-feedback">
@@ -64,9 +70,9 @@
       </div>
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="indirizzo">Indirizzo</label>
+        <label class="col-md-2 col-form-label" for="indirizzo">*Indirizzo</label>
         <div class="col-md-8">
-          <input class="form-control" id="indirizzo" type="text" placeholder="indirizzo (required)" required
+          <input class="form-control" id="indirizzo" type="text" placeholder="indirizzo " required
             [(ngModel)]=student.indirizzo name="indirizzo" #indirizzoVar="ngModel"
             [ngClass]="{'is-invalid': (indirizzoVar.touched || indirizzoVar.dirty) && !indirizzoVar.valid }" />
           <span class="invalid-feedback">
@@ -78,9 +84,9 @@
       </div>
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="mail">Mail</label>
+        <label class="col-md-2 col-form-label" for="mail">*Mail</label>
         <div class="col-md-8">
-          <input class="form-control" id="mail" type="text" placeholder="mail (required)" required
+          <input class="form-control" id="mail" type="email" placeholder="mail" required email
             [(ngModel)]=student.mail name="mail" #mailVar="ngModel"
             [ngClass]="{'is-invalid': (mailVar.touched || mailVar.dirty) && !mailVar.valid }" />
           <span class="invalid-feedback">
@@ -92,9 +98,10 @@
       </div>
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="telefono">Telefono</label>
+        <label class="col-md-2 col-form-label" for="telefono">*Telefono</label>
         <div class="col-md-8">
-          <input class="form-control" id="telefono" type="text" placeholder="telefono (required)" required
+          <input class="form-control" style="-moz-appearance: textfield"
+           id="telefono" type="number" placeholder="telefono" required
             [(ngModel)]=student.telefono name="telefono" #telefonoVar="ngModel"
             [ngClass]="{'is-invalid': (telefonoVar.touched || telefonoVar.dirty) && !telefonoVar.valid }" />
           <span class="invalid-feedback">
@@ -109,9 +116,9 @@
 
 
       <div class="form-group row mb-2">
-        <label class="col-md-2 col-form-label" for="titoloDiStudio">Titolo Di Studio</label>
+        <label class="col-md-2 col-form-label" for="titoloDiStudio">*Titolo Di Studio</label>
         <div class="col-md-8">
-          <input class="form-control" id="titoloDiStudio" type="text" placeholder="Titolo di studio (required)" required
+          <input class="form-control" id="titoloDiStudio" type="text" placeholder="Titolo di studio" required
             [(ngModel)]=student.titoloDiStudio name="titoloDiStudio" #titoloDiStudioVar="ngModel"
             [ngClass]="{'is-invalid': (titoloDiStudioVar.touched || titoloDiStudioVar.dirty) && !titoloDiStudioVar.valid }" />
           <span class="invalid-feedback">
@@ -159,4 +166,4 @@
   </div>
 
 </div>
-<br>Value: {{ signupForm.value | json }}
+

@@ -6,6 +6,8 @@ import { studentService } from './student.service';
 @Component({
     selector:"app-student",
     templateUrl: "./student.component.html",
+
+    
     
 })
 export class StudentComponent implements OnInit{

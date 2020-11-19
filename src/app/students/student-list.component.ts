@@ -12,6 +12,7 @@ import { MatSort, Sort } from '@angular/material/sort';
       styleUrls: ['./student-list.component.css']
     })
     export class studentListComponent implements OnInit,AfterViewInit {
+      title="Student list";
     students:IStudent[]=[];
     errorMessage = '';
     constructor(private studentService:studentService) {}
