@@ -41,6 +41,10 @@ export class DetailsComponentComponent implements OnInit {
   onBack(): void {
     this.router.navigate(['/students']);
   }
+  goToForm(): void {
+    this.router.navigate(['/studentIscr']);
+  }
+
 
 
 
