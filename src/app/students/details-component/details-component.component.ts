@@ -21,7 +21,6 @@ export class DetailsComponentComponent implements OnInit {
       const param = +id;
       this.getStudent(param);
     }
-    console.log("non entra" + id);
 
   }
   delete(id: number): void {

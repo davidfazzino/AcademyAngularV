@@ -18,6 +18,7 @@ import { StudentComponent } from './students/student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentReactiveComponent } from './students/student-reactive/student-reactive.component';
 import { DetailsComponentComponent } from './students/details-component/details-component.component';
+import { StudentUpdateComponent } from './students/student-update/student-update.component';
 
 
 
@@ -29,7 +30,8 @@ import { DetailsComponentComponent } from './students/details-component/details-
     HomeComponent,
     StudentComponent,
     StudentReactiveComponent,
-    DetailsComponentComponent
+    DetailsComponentComponent,
+    StudentUpdateComponent
     
   ],
    
