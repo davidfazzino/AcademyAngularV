@@ -10,6 +10,7 @@ import { IStudent } from '../IStudent';
 export class DetailsComponentComponent implements OnInit {
   title: "Student details";
   errorMessage: " ";
+  enter:boolean=false;
   student: IStudent | undefined;
   constructor(private studentService: studentService, private route: ActivatedRoute, private router: Router) { }
 
@@ -43,6 +44,7 @@ export class DetailsComponentComponent implements OnInit {
   }
   goToForm(): void {
     this.router.navigate(['/studentIscr']);
+    this.enter=true;
   }
 
 
