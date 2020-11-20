@@ -1,0 +1,58 @@
+<div class='card' *ngIf='student'>
+    <div class='card-header'>
+        {{title}}
+    </div>
+    <div class='card-body'>
+        <div class='row'>
+            <div class='col-md-8'>
+                <div class='row'>
+                    <div class='col-md-4'>Nome:</div>
+                    <div class='col-md-8'>{{student.nome}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Cognome:</div>
+                    <div class='col-md-8'>{{student.cognome}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Codice fiscale:</div>
+                    <div class='col-md-8'>{{student.codiceFiscale}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Data di nascita:</div>
+                    <div class='col-md-8'>{{student.dataDiNascita}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Indirizzo:</div>
+                    <div class='col-md-8'>{{student.indirizzo}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Mail:</div>
+                    <div class='col-md-8'>{{student.mail}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Telefono:</div>
+                    <div class='col-md-8'>{{student.telefono}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Titolo di studio:</div>
+                    <div class='col-md-8'>{{student.titoloDiStudio}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Sesso:</div>
+                    <div class='col-md-8'>{{!student.sesso ? 'femmina': 'maschio'}}</div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class='card-footer'>
+            <button class='btn btn-outline-secondary' (click)='onBack()' style='width:80px'>
+                <i class='fa fa-chevron-left'></i> Back
+            </button>
+            <button class='btn btn-outline-secondary' (click)='delete(student.id)' style='width:80px'>
+                <i class='fa fa-chevron-left'></i> Delete
+            </button>
+        </div>
+    </div>

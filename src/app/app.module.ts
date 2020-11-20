@@ -17,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { StudentComponent } from './students/student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentReactiveComponent } from './students/student-reactive/student-reactive.component';
+import { DetailsComponentComponent } from './students/details-component/details-component.component';
 
 
 
@@ -27,7 +28,8 @@ import { StudentReactiveComponent } from './students/student-reactive/student-re
     studentListComponent,
     HomeComponent,
     StudentComponent,
-    StudentReactiveComponent
+    StudentReactiveComponent,
+    DetailsComponentComponent
     
   ],
    

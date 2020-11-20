@@ -7,41 +7,48 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
 
 @Injectable({
-    providedIn: 'root'
-  })
-export class studentService{
-    private studentUrl = 'http://localhost:8080/api/students';
-    constructor(private http: HttpClient) {}
+  providedIn: 'root'
+})
+export class studentService {
+  private studentUrl = 'http://localhost:8080/api/students';
+  constructor(private http: HttpClient) { }
 
-    getStudents(): Observable<IStudent[]> {
+  getStudents(): Observable<IStudent[]> {
+    return this.http.get<IStudent[]>(this.studentUrl)
+      .pipe(
+        tap(data => console.log('All: ' + JSON.stringify(data))),
+        catchError(this.handleError)
+      );
 
-        
-        return this.http.get<IStudent[]>(this.studentUrl)
-        .pipe(
-            tap(data => console.log('All: ' + JSON.stringify(data))),
-            catchError(this.handleError)
-          );
-        
-    }
-    addStudent(student:IStudent):Observable<IStudent> {
-      console.log("add in servizio");
-      const headers = { 'content-type': 'application/json'}  
-      return this.http.post<IStudent>(this.studentUrl, student,{'headers':headers});
-    
-      
-    }
-        
+  }
+  addStudent(student: IStudent): Observable<IStudent> {
+    console.log("add in servizio");
+    const headers = { 'content-type': 'application/json' }
+    return this.http.post<IStudent>(this.studentUrl, student, { 'headers': headers });
+  }
+  deleteStudent(id:number):Observable<IStudent>{
+    return this.http.delete<IStudent>(this.studentUrl +"/"+id);
+  }
+  findStudent(id:number): Observable<IStudent|undefined> {
+    return this.http.get<IStudent|undefined>(this.studentUrl+"/"+id);
+  }
+  updateStudent(student:IStudent): Observable<IStudent> {
+    return this.http.put<IStudent>(this.studentUrl,student);
+  }
+
+
+
   private handleError(err: HttpErrorResponse): Observable<never> {
-  
+
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
-     
+
       errorMessage = `An error occurred: ${err.error.message}`;
     } else {
-      
+
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
     console.error(errorMessage);
     return throwError(errorMessage);
   }
-    }
+}

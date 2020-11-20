@@ -5,8 +5,8 @@
 <table mat-table [dataSource]="students" matSort class="mat-elevation-z8" (matSortChange)="sortData($event)" style="width:100%" >
 
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Id </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}}</td> 
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >Id </th>
+    <td mat-cell *matCellDef="let element"> <a class="nav-link" routerLinkActive="active" [routerLink]="['/students',element.id]">{{element.id}}</a> </td> 
   </ng-container>
 
   <ng-container matColumnDef="nome">

@@ -1,6 +1,5 @@
 import { Component,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { IStudent } from './IStudent';
 import { Student } from './student';
 import { studentService } from './student.service';
 @Component({
@@ -19,17 +18,14 @@ export class StudentComponent implements OnInit{
         
     }
     save(studentForm: NgForm): void {
-        // let s:IStudent={
-        //     id:0,
-        //     ...studentForm.value
-        // };
        this.studentService.addStudent(this.student).subscribe({
            next: data=> console.log(data)
        });
-       console.log("save attivato dal bottone");
        
      
       }
+     
+
 
 
 }
