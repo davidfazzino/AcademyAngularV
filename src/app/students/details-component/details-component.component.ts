@@ -41,9 +41,11 @@ export class DetailsComponentComponent implements OnInit {
   onBack(): void {
     this.router.navigate(['/students']);
   }
-  goToForm(): void {
-    this.router.navigate(['/studentIscr']);
-    this.enter=true;
+  
+  beforeDelete(id: number){
+    if(confirm('Stai per eliminare lo studente!')){
+      this.delete(id);
+    }
   }
 
 

@@ -1,1 +1,174 @@
-<p>student-update works!</p>
+
+<div class="card" style="margin-top: 20px">
+    <div class="card-header">
+      Aggiornamento studente
+    </div>
+    
+  
+    <div class="card-body">
+      <p>I campi contrassegnati con * sono obbligatori</p>
+      <form novalidate (ngSubmit)="save()" [formGroup]="updateForm">
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="nome">*Nome</label>
+          <div class="col-md-8" [formGroup]="updateForm">
+            <input class="form-control" id="nome" type="text" placeholder="Nome"
+            formControlName="nome"
+            name="nome" 
+              [ngClass]="{'is-invalid': isFieldInvalid('nome') }" />
+            <span class="invalid-feedback">
+              <span *ngIf="updateForm.get('nome')?.errors?.required">
+                Please enter your name.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="cognome">*Cognome</label>
+          <div class="col-md-8">
+            <input class="form-control" id="cognome" type="text" placeholder="Cognome"
+            formControlName="cognome"
+            name="cognome" 
+              [ngClass]="{'is-invalid': isFieldInvalid('cognome')}" />
+            <span class="invalid-feedback">
+              <span *ngIf="updateForm.get('cognome')?.errors?.required">
+                Please enter your surname.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="codiceFiscale">*codiceFiscale</label>
+          <div class="col-md-8">
+            <input class="form-control" id="codiceFiscale" type="text" placeholder="codice fiscale" 
+            formControlName="codiceFiscale" name="codiceFiscale" 
+              [ngClass]="{'is-invalid':isFieldInvalid('codiceFiscale')}" />
+            <span class="invalid-feedback">
+              <span *ngIf="updateForm.get('codiceFiscale')?.errors?.required">
+                Please enter your fiscal code.
+              </span>
+              <span *ngIf="updateForm.get('codiceFiscale')?.errors?.maxlength || updateForm.get('codiceFiscale')?.errors?.minlength">
+                The fiscal code must be 16 characters.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="dataDiNascita">*Data di nascita</label>
+          <div class="col-md-8">
+            <input class="form-control" id="dataDiNascita" type="date" placeholder="data di nascita" 
+            formControlName="dataDiNascita" name="dataDiNascita" 
+              [ngClass]="{'is-invalid': isFieldInvalid('dataDiNascita') }" />
+            <span class="invalid-feedback">
+              <span *ngIf="updateForm.get('dataDiNascita')?.errors?.required">
+                Please enter your date of birth.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="indirizzo">*Indirizzo</label>
+          <div class="col-md-8">
+            <input class="form-control" id="indirizzo" type="text" placeholder="indirizzo " 
+            formControlName='indirizzo' name="indirizzo" 
+              [ngClass]="{'is-invalid': isFieldInvalid('indirizzo')}" />
+            <span class="invalid-feedback">
+              <span *ngIf="updateForm.get('indirizzo')?.errors?.required">
+                Please enter your address.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="mail">*Mail</label>
+          <div class="col-md-8">
+            <input class="form-control" id="mail" type="email" placeholder="mail" 
+            formControlName="mail" name="mail"
+              [ngClass]="{'is-invalid': isFieldInvalid('mail') }" />
+            <span class="invalid-feedback">
+              <span *ngIf="updateForm.get('mail')?.errors?.required">
+                Please enter your mail.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="telefono">*Telefono</label>
+          <div class="col-md-8">
+            <input class="form-control" style="-moz-appearance: textfield"
+             id="telefono" type="number" placeholder="telefono" 
+             formControlName="telefono" name="telefono" 
+              [ngClass]="{'is-invalid': isFieldInvalid('telefono') }" />
+            <span class="invalid-feedback">
+              <span *ngIf="updateForm.get('telefono')?.errors?.required">
+                Please enter your number.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+  
+  
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="titoloDiStudio">*Titolo Di Studio</label>
+          <div class="col-md-8">
+            <input class="form-control" id="titoloDiStudio" type="text" placeholder="Titolo di studio" 
+            formControlName="titoloDiStudio" name="titoloDiStudio"
+              [ngClass]="{'is-invalid': isFieldInvalid('titoloDiStudio') }" />
+            <span class="invalid-feedback">
+              <span *ngIf="updateForm.get('titoloDiStudio')?.errors?.required">
+                Please enter your titoloDiStudioVar.
+              </span>
+            </span>
+          </div>
+        </div>
+        <div>
+          <div class="form-check">
+            <input class="form-check-input"
+            id="sesso"
+            type="radio"
+            value=true
+            formControlName="sesso"
+            name="sesso">
+            <label for="maschio">maschio</label>
+            
+          </div>
+          <div class="form-check">
+            <input class="form-check-input"
+            id="sesso"
+            type="radio"
+            value=false
+            formControlName="sesso"
+            name="sesso"
+             >
+            <label for="femmina">femmina</label>
+            
+          </div>
+          
+        </div>
+        <div class="form-group row mb-2">
+          <div class="offset-md-2 col-md-4">
+            <button class="btn btn-primary mr-3" type="submit" style="width:80px"
+              [title]="updateForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+              [disabled]="!updateForm.valid">
+              Update
+            </button>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  
+  </div>
+  {{updateForm.value }}
+  {{updateForm.valid}}
+  {{updateForm.dirty}}
+  {{updateForm.touched}}

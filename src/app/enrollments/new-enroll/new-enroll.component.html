@@ -1,0 +1,48 @@
+
+<div class="card" style="margin-top: 20px">
+    <div class="card-header">
+      Iscrizione dello studente a un corso
+    </div>
+  
+    <div class="card-body">
+      <form novalidate (ngSubmit)="save()" [formGroup]="enrollForm">
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="idCorso">*Corso</label>
+          <div class="col-md-8">
+            <select id="idCorso" name="idCorso" formControlName="idCorso" 
+              [ngClass]="{'is-invalid': isFieldInvalid('idCorso') }">
+              <option *ngFor='let c of courses' [value]='c.id'> {{c.nome}} </option>
+            </select>
+              <span class="invalid-feedback">
+              <span *ngIf="enrollForm.get('idCorso')?.errors?.required">
+                You must enter a course.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row mb-2">
+          <div class="offset-md-2 col-md-4">
+            <button class="btn btn-primary mr-3" type="submit" style="width:80px"
+              [title]="enrollForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+              [disabled]="!enrollForm.valid">
+              Save
+            </button>
+          </div>
+          <div class="offset-md-2 col-md-4">
+            <button class='btn btn-outline-secondary' (click)='onBack()' style='width:80px'>
+              <i class='fa fa-chevron-left'></i> Back
+          </button>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  
+  </div>
+  {{enrollForm.value }}
+  {{enrollForm.valid}}
+  {{enrollForm.dirty}}
+  {{enrollForm.touched}}
+  <br>Value: {{ enrollForm.value | json }}

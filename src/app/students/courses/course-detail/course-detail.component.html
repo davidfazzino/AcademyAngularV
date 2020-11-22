@@ -1,0 +1,101 @@
+<div class='card' *ngIf='course'>
+    <div class='card-header'>
+        {{title}}
+    </div>
+    <div class='card-body'>
+        <div class='row'>
+            <div class='col-md-8'>
+                <div class='row'>
+                    <div class='col-md-4'>Nome:</div>
+                    <div class='col-md-8'>{{course.nome}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Materia:</div>
+                    <div class='col-md-8'>{{course.materia}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Numero massimo di iscrizioni:</div>
+                    <div class='col-md-8'>{{course.maxIscritti}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Categoria:</div>
+                    <div class='col-md-8'>{{course.categoria}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Possibile data di inizio:</div>
+                    <div class='col-md-8'>{{course.dataInizio}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Durata del corso (ore):</div>
+                    <div class='col-md-8'>{{course.durataCorso}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Presenze obbligatorie (ore):</div>
+                    <div class='col-md-8'>{{course.orarioMinimo}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Ente:</div>
+                    <div class='col-md-8'>{{course.ente}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Azienda:</div>
+                    <div class='col-md-8'>{{course.azienda}}</div>
+                </div>
+            
+                <div *ngIf='course.listaModuli.length>0'>
+                    Moduli:
+                    
+                        <table mat-table [dataSource]="dataSource">
+                            <ng-container matColumnDef="id">
+                                <th mat-header-cell *matHeaderCellDef> Id Modulo </th>
+                                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="nome">
+                               <th mat-header-cell *matHeaderCellDef> Nome </th>
+                               <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="idProfessor">
+                                <th mat-header-cell *matHeaderCellDef> Professore </th>
+                                <td mat-cell *matCellDef="let element"> {{element.idProfessor}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="descrizione">
+                                <th mat-header-cell *matHeaderCellDef> Descrizione </th>
+                                <td mat-cell *matCellDef="let element"> {{element.descrizione}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="numeroOre">
+                                <th mat-header-cell *matHeaderCellDef> Durata (ore) </th>
+                                <td mat-cell *matCellDef="let element"> {{element.numeroOre}} </td>
+                              </ng-container>
+                              <ng-container matColumnDef="aulaPreferita">
+                                <th mat-header-cell *matHeaderCellDef> Aula preferita </th>
+                                <td mat-cell *matCellDef="let element"> {{element.aulaPreferita}} </td>
+                              </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                </div>
+            </div>
+            
+        </div>
+            <div class='card-footer'>
+                <div class="form-group row mb-2">
+                    <div class=" col-md-2">
+                        <button class='btn btn-outline-secondary' routerLinkActive="active" [routerLink]="['/enrolled', course.id]" style='width:120px'>
+                            <i class='fa fa-chevron-left'></i> Enrolled List
+                        </button>
+                    </div>
+                    <div class=" col-md-2">
+                        <button class='btn btn-outline-secondary' style='width:80px'>
+                            <i class='fa fa-chevron-left'></i> Delete
+                        </button>
+                    </div>
+                    <div class="offset-md-1 col-md-2">
+                        <button class='btn btn-outline-secondary' (click)='onBack()' style='width:80px'>
+                            <i class='fa fa-chevron-left'></i> Back
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

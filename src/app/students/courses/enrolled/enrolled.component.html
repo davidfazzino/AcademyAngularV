@@ -1,0 +1,68 @@
+<div class="container ">
+    <h2 style="margin-top:10px">{{title}}</h2>
+  </div>
+  
+  <table mat-table [dataSource]="students" matSort class="mat-elevation-z8" (matSortChange)="sortData($event)" style="width:100%" >
+  
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header >Id </th>
+      <td mat-cell *matCellDef="let element"> <a class="nav-link" routerLinkActive="active" [routerLink]="['/students',element.id]">{{element.id}}</a> </td> 
+    </ng-container>
+  
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> nome </th>
+      <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="cognome">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Cognome </th>
+      <td mat-cell *matCellDef="let element"> {{element.cognome}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="codiceFiscale">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Codice fiscale </th>
+      <td mat-cell *matCellDef="let element"> {{element.codiceFiscale}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="dataDiNascita">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Data di nascita </th>
+      <td mat-cell *matCellDef="let element"> {{element.dataDiNascita}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="indirizzo">
+      <th mat-header-cell *matHeaderCellDef> Indirizzo </th>
+      <td mat-cell *matCellDef="let element"> {{element.indirizzo}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="mail">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  Mail </th>
+      <td mat-cell *matCellDef="let element"> {{element.mail}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="telefono">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefono </th>
+      <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="titoloDiStudio">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Titolo di studio </th>
+      <td mat-cell *matCellDef="let element"> {{element.titoloDiStudio}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="sesso">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Sesso </th>
+      <td mat-cell *matCellDef="let element"> {{!element.sesso ? 'femmina': 'maschio'}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    
+  </table>
+  <mat-paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+  <div class="offset-md-1 col-md-2">
+    <button class='btn btn-outline-secondary' (click)='onBack()' style='width:80px'>
+        <i class='fa fa-chevron-left'></i> Back
+    </button>
+</div>

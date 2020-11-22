@@ -19,21 +19,28 @@ export class studentService {
         tap(data => console.log('All: ' + JSON.stringify(data))),
         catchError(this.handleError)
       );
-
   }
   addStudent(student: IStudent): Observable<IStudent> {
-    console.log("add in servizio");
     const headers = { 'content-type': 'application/json' }
-    return this.http.post<IStudent>(this.studentUrl, student, { 'headers': headers });
+    return this.http.post<IStudent>(this.studentUrl, student, { 'headers': headers })
+      .pipe(catchError(this.handleError));
   }
   deleteStudent(id:number):Observable<IStudent>{
-    return this.http.delete<IStudent>(this.studentUrl +"/"+id);
+    return this.http.delete<IStudent>(this.studentUrl +"/"+id)
+      .pipe(catchError(this.handleError));
   }
   findStudent(id:number): Observable<IStudent|undefined> {
-    return this.http.get<IStudent|undefined>(this.studentUrl+"/"+id);
+    return this.http.get<IStudent|undefined>(this.studentUrl+"/"+id)
+      .pipe(catchError(this.handleError));
   }
   updateStudent(student:IStudent): Observable<IStudent> {
-    return this.http.put<IStudent>(this.studentUrl,student);
+    return this.http.put<IStudent>(this.studentUrl, student)
+      .pipe(catchError(this.handleError));
+  }
+
+  studentsByCourse(idCourse: number): Observable<IStudent[]>{
+    return this.http.get<IStudent[]>(`http://localhost:8080/api/courses/${idCourse}/students`)
+    .pipe(catchError(this.handleError));
   }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IStudent } from '../IStudent';
 import { Student } from '../student';
 import { studentService } from '../student.service';
@@ -11,7 +12,7 @@ import { studentService } from '../student.service';
 })
 export class StudentReactiveComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private studentService:studentService) { }
+  constructor(private fb: FormBuilder, private studentService:studentService, private route: ActivatedRoute, private router: Router) { }
   studentForm:FormGroup;
   student=new Student();
   ngOnInit(): void {
@@ -34,15 +35,18 @@ export class StudentReactiveComponent implements OnInit {
          ...this.studentForm.value
      };
    this.studentService.addStudent(s).subscribe({
-     next: data=> console.log(data)
-   }
-     
-   );
+     next: data=> {
+      console.log(data);
+      this.onBack();
+     }  
+   });
   }
+
   isFieldInvalid(fieldName:string):boolean|undefined{
     return (this.studentForm.get(fieldName)?.touched || this.studentForm.get(fieldName)?.dirty) && !this.studentForm.get(fieldName)?.valid;
-
-
   }
 
+  onBack(): void {
+    this.router.navigate(['/students']);
+  }
 }

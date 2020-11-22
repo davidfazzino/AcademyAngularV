@@ -19,6 +19,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StudentReactiveComponent } from './students/student-reactive/student-reactive.component';
 import { DetailsComponentComponent } from './students/details-component/details-component.component';
 import { StudentUpdateComponent } from './students/student-update/student-update.component';
+import { CoursesComponent } from './students/courses/courses.component';
+import { courseService } from './students/courses/course-service';
+import { enrollService } from './enrollments/enrollment-component/enroll-service';
+import { EvaluationComponent } from './enrollments/evaluation/evaluation.component';
+import { NewEnrollComponent } from './enrollments/new-enroll/new-enroll.component';
+import { CourseDetailComponent } from './students/courses/course-detail/course-detail.component';
+import { EnrolledComponent } from './students/courses/enrolled/enrolled.component';
+
 
 
 
@@ -31,7 +39,12 @@ import { StudentUpdateComponent } from './students/student-update/student-update
     StudentComponent,
     StudentReactiveComponent,
     DetailsComponentComponent,
-    StudentUpdateComponent
+    StudentUpdateComponent,
+    CoursesComponent,
+    EvaluationComponent,
+    NewEnrollComponent,
+    CourseDetailComponent,
+    EnrolledComponent
     
   ],
    
@@ -45,11 +58,12 @@ import { StudentUpdateComponent } from './students/student-update/student-update
     MatPaginatorModule,
     MatSortModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
     
   
   ],
-  providers: [studentService],
+  providers: [studentService, courseService, enrollService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

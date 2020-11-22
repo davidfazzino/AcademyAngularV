@@ -1,0 +1,69 @@
+
+<div class="card" style="margin-top: 20px">
+    <div class="card-header">
+      Valutazione dello studente
+    </div>
+  
+    <div class="card-body">
+      <form novalidate (ngSubmit)="save()" [formGroup]="valueForm">
+  
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="valutazione">Valutazione</label>
+          <div class="col-md-8">
+            <input class="form-control" id="valutazione" type="number" placeholder="0 - 10"
+            formControlName="valutazione"
+            name="valutazione" 
+              [ngClass]="{'is-invalid': isFieldInvalid('valutazione') }" />
+            <span class="invalid-feedback">
+              <span *ngIf="valueForm.get('valutazione')?.errors?.min || valueForm.get('valutazione')?.errors?.max">
+                The evaluation must be between 1 and 10.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        
+        <div>
+            <label class="col-md-2 col-form-label" for="valutazione">Ritirato</label>
+          <div class="form-check">
+            <input class="form-check-input"
+            id="ritirato"
+            type="radio"
+            value=true
+            formControlName="ritirato"
+            name="ritirato">
+            <label for="si">si</label>
+            
+          </div>
+          <div class="form-check">
+            <input class="form-check-input"
+            id="ritirato"
+            type="radio"
+            value=false
+            formControlName="ritirato"
+            name="ritirato"
+             >
+            <label for="no">no</label>
+            
+          </div>
+          
+        </div>
+        <div class="form-group row mb-2">
+          <div class="offset-md-2 col-md-4">
+            <button class="btn btn-primary mr-3" type="submit" style="width:80px"
+              [title]="valueForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+              [disabled]="!valueForm.valid">
+              Save
+            </button>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  
+  </div>
+  {{valueForm.value }}
+  {{valueForm.valid}}
+  {{valueForm.dirty}}
+  {{valueForm.touched}}
+  <br>Value: {{ valueForm.value | json }}

@@ -1,0 +1,62 @@
+<div class="container ">
+    <h2 style="margin-top:10px">{{title}}</h2>
+  </div>
+  
+  <table mat-table [dataSource]="course" matSort class="mat-elevation-z8"  style="width:100%" >
+  
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header >Id </th>
+      <td mat-cell *matCellDef="let element"> <a class="nav-link" routerLinkActive="active" [routerLink]="['/courses',element.id]">{{element.id}} </a></td> 
+    </ng-container>
+  
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+      <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="materia">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Materia </th>
+      <td mat-cell *matCellDef="let element"> {{element.materia}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="maxIscritti">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Numero massimo </th>
+      <td mat-cell *matCellDef="let element"> {{element.maxIscritti}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoria </th>
+      <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="dataInizio">
+      <th mat-header-cell *matHeaderCellDef> Data di inizio </th>
+      <td mat-cell *matCellDef="let element"> {{element.dataInizio}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="durataCorso">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  Durata del corso </th>
+      <td mat-cell *matCellDef="let element"> {{element.durataCorso}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="orarioMinimo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Ore di presenza richieste </th>
+      <td mat-cell *matCellDef="let element"> {{element.orarioMinimo}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="ente">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Ente </th>
+      <td mat-cell *matCellDef="let element"> {{element.ente}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="azienda">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Azienda </th>
+      <td mat-cell *matCellDef="let element"> {{element.azienda}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    
+  </table>
+  <mat-paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
